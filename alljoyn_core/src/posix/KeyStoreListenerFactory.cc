@@ -42,7 +42,7 @@
 #include <alljoyn/KeyStoreListener.h>
 #include <alljoyn/Status.h>
 
-#include "KeyStore.h"
+#include "../KeyStore.h"
 
 #define QCC_MODULE "ALLJOYN_AUTH"
 

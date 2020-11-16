@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 #    Copyright (c) Open Connectivity Foundation (OCF), AllJoyn Open Source
 #    Project (AJOSP) Contributors and others.
@@ -42,10 +42,10 @@ includeSet = set()
 def openFile(name, type):
     try:
         return open(name, type)
-    except IOError, e:
+    except IOError as e:
         errno, errStr = e
-        print "I/O Operation on %s failed" % name
-        print "I/O Error(%d): %s" % (errno, errStr)
+        print ("I/O Operation on %s failed" % name)
+        print ("I/O Error(%d): %s" % (errno, errStr))
         raise e
 
 
@@ -85,7 +85,7 @@ def main(argv=None):
         opts, fileArgs = getopt.getopt(argv, "h", ["help", "header=", "code=", "dep=", "base=", "prefix=", "commentCode="])
         for o, a in opts:
             if o in ("-h", "--help"):
-                print __doc__
+                print (__doc__)
                 return 0
             if o in ("--header"):
                 headerOut = openFile(a, 'w')
@@ -101,7 +101,7 @@ def main(argv=None):
                 CommentCodeOut = openFile(a, 'w')
 
         if None == headerOut or None == codeOut:
-            raise Error("Must specify both --header and --code")
+            raise Exception("Must specify both --header and --code")
 
         isFirst = True
         includeSet.clear()
@@ -121,12 +121,12 @@ def main(argv=None):
             CommentCodeOut.close()
         if None != depOut:
             depOut.close()
-    except getopt.error, msg:
-        print msg
-        print "for help use --help"
+    except getopt.error as msg:
+        print (msg)
+        print ("for help use --help")
         return 1
-    except Exception, e:
-        print "ERROR: %s" % e
+    except Exception as e:
+        print ("ERROR: %s" % e)
         if None != headerOut:
             os.unlink(headerOut.name)
         if None != codeOut:

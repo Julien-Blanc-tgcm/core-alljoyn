@@ -50,10 +50,10 @@
 
 #include <alljoyn/BusAttachment.h>
 
-#include "BusInternal.h"
-#include "RemoteEndpoint.h"
-#include "Router.h"
-#include "ClientTransport.h"
+#include "../BusInternal.h"
+#include "../ClientTransport.h"
+#include "../RemoteEndpoint.h"
+#include "../Router.h"
 
 #define QCC_MODULE "ALLJOYN"
 

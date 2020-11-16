@@ -32,14 +32,8 @@
  *    PERFORMANCE OF THIS SOFTWARE.
  ******************************************************************************/
 
-#include <qcc/platform.h>
-#include <qcc/StaticGlobals.h>
-#include <qcc/LockLevel.h>
-#include <alljoyn/Init.h>
-#include <alljoyn/PasswordManager.h>
 #include "AutoPingerInternal.h"
 #include "BusInternal.h"
-#include "KeyStoreListener.h"
 #include "NamedPipeClientTransport.h"
 #include "ProtectedAuthListener.h"
 #include "XmlManifestTemplateConverter.h"
@@ -48,7 +42,13 @@
 #include "XmlPoliciesValidator.h"
 #include "XmlRulesConverter.h"
 #include "XmlRulesValidator.h"
+#include <alljoyn/Init.h>
+#include <alljoyn/KeyStoreListener.h>
+#include <alljoyn/PasswordManager.h>
 #include <limits>
+#include <qcc/LockLevel.h>
+#include <qcc/StaticGlobals.h>
+#include <qcc/platform.h>
 
 namespace ajn {
 

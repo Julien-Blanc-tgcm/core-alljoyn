@@ -37,11 +37,11 @@
 #include <qcc/StringUtil.h>
 #include <alljoyn/BusAttachment.h>
 
-#include "BusInternal.h"
-#include "RemoteEndpoint.h"
-#include "Router.h"
-#include "ClientTransport.h"
-#include "NamedPipeClientTransport.h"
+#include "../BusInternal.h"
+#include "../ClientTransport.h"
+#include "../NamedPipeClientTransport.h"
+#include "../RemoteEndpoint.h"
+#include "../Router.h"
 
 #define QCC_MODULE "ALLJOYN"
 

@@ -37,7 +37,7 @@
 #include <qcc/Debug.h>
 #include <qcc/Thread.h>
 
-#include <BusEndpoint.h>
+#include "BusEndpoint.h"
 
 #define QCC_MODULE "ALLJOYN"
 

@@ -33,9 +33,9 @@
  *    PERFORMANCE OF THIS SOFTWARE.
  ******************************************************************************/
 
-#include <qcc/platform.h>
+#include <alljoyn/PasswordManager.h>
 #include <qcc/String.h>
-#include "PasswordManager.h"
+#include <qcc/platform.h>
 
 using namespace qcc;
 
