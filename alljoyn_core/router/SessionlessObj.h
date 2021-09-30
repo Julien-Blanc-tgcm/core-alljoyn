@@ -48,11 +48,11 @@
 #include <alljoyn/SessionPortListener.h>
 #include <alljoyn/SessionListener.h>
 
+#include "../src/Transport.h"
 #include "Bus.h"
 #include "DaemonRouter.h"
 #include "NameTable.h"
 #include "RuleTable.h"
-#include "Transport.h"
 #include "ns/IpNameService.h"
 
 namespace ajn {

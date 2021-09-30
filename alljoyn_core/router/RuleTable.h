@@ -41,9 +41,8 @@
 #include <qcc/Mutex.h>
 #include <qcc/LockLevel.h>
 
-#include "BusEndpoint.h"
-#include "Rule.h"
-
+#include "../src/BusEndpoint.h"
+#include "../src/Rule.h"
 
 namespace ajn {
 

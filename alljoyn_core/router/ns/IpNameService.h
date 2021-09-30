@@ -44,8 +44,8 @@
 #include <qcc/IfConfig.h>
 #include <alljoyn/TransportMask.h>
 
+#include "../src/Callback.h"
 #include <alljoyn/Status.h>
-#include <Callback.h>
 
 #include "IpNsProtocol.h"
 

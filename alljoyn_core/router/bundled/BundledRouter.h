@@ -31,9 +31,9 @@
 
 #include <qcc/platform.h>
 
-#include "NullTransport.h"
-#include "PasswordManager.h"
-#include "TransportFactory.h"
+#include "../src/NullTransport.h"
+#include "../src/TransportFactory.h"
+#include "alljoyn/PasswordManager.h"
 
 namespace ajn {
 

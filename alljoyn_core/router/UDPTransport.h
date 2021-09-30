@@ -56,8 +56,8 @@
 
 #include <alljoyn/TransportMask.h>
 
-#include "Transport.h"
-#include "RemoteEndpoint.h"
+#include "../src/RemoteEndpoint.h"
+#include "../src/Transport.h"
 
 #include "ArdpProtocol.h"
 

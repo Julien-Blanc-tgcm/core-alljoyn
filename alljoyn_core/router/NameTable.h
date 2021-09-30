@@ -48,7 +48,7 @@
 
 #include <alljoyn/Status.h>
 
-#include "BusEndpoint.h"
+#include "../src/BusEndpoint.h"
 #include "VirtualEndpoint.h"
 
 #include <qcc/STLContainer.h>

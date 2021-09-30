@@ -53,6 +53,8 @@ add_library(alljoyn_c
     ${alljoyn-c-sources}
     )
 
+add_dependencies(alljoyn_c status_header_cpp)
+
 target_include_directories(alljoyn_c PRIVATE
     "${CMAKE_CURRENT_SOURCE_DIR}/inc"
     "${CMAKE_CURRENT_SOURCE_DIR}/../common/crypto"

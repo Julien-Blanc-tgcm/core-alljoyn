@@ -41,12 +41,12 @@
 
 #include <qcc/Thread.h>
 
-#include "Transport.h"
+#include "../src/Transport.h"
 
 #include <alljoyn/Status.h>
 
-#include "LocalTransport.h"
-#include "Router.h"
+#include "../src/LocalTransport.h"
+#include "../src/Router.h"
 #include "NameTable.h"
 #include "RuleTable.h"
 

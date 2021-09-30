@@ -8,6 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 configure_file("src/version.cc.in"
     "${CMAKE_CURRENT_BINARY_DIR}/version.cc")
 
+set_source_files_properties(${Status-cc-file} PROPERTIES GENERATED ON)
 set(alljoyn-core-sources
     "src/AboutData.cc"
     "src/AboutIcon.cc"
@@ -89,6 +90,43 @@ list(APPEND alljoyn-core-sources
     "src/posix/KeyStoreListenerFactory.cc"
     "src/posix/NamedPipeClientTransport.cc")
 
+set(alljoyn-router-sources)
+
+set(alljoyn-router-common-sources
+    "router/ArdpProtocol.cc"
+    "router/AllJoynObj.cc"
+    "router/AllJoynDebugObj.cc"
+    "router/Bus.cc"
+    "router/BusController.cc"
+    "router/ConfigDB.cc"
+    "router/DaemonRouter.cc"
+    "router/DBusObj.cc"
+    "router/NameTable.cc"
+    "router/RouterGlobals.cc"
+    "router/RuleTable.cc"
+    "router/SessionlessObj.cc"
+    "router/TCPTransport.cc"
+    "router/UDPTransport.cc"
+    "router/VirtualEndpoint.cc"
+    "router/ns/IpNameService.cc"
+    "router/ns/IpNameServiceImpl.cc"
+    "router/ns/IpNsProtocol.cc"
+)
+
+list(APPEND alljoyn-router-common-sources
+    "router/posix/PermissionMgrPosix.cc"
+    "router/posix/Socket.cc"
+    )
+
+if(${EMBED_ALLJOYN_ROUTER})
+    list(APPEND alljoyn-router-sources
+        "router/bundled/BundledRouter.cc"
+        "router/bundled/BundledRouter.h"
+        "router/bundled/BundledRouterInit.cc"
+        ${alljoyn-router-common-sources}
+        )
+endif()
+
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/inc"
     "${CMAKE_CURRENT_SOURCE_DIR}/../common/crypto"
     "${CMAKE_CURRENT_BINARY_DIR}/inc"
@@ -99,5 +137,17 @@ include_directories("${CMAKE_CURRENT_SOURCE_DIR}/inc"
 add_library(alljoyn
     ${alljoyn-core-sources}
     ${alljoyn-common-sources}
+    ${alljoyn-router-sources}
 )
+
+add_dependencies(alljoyn status_header_cpp)
+
+if(${EMBED_ALLJOYN_ROUTER})
+    target_compile_definitions(alljoyn PRIVATE ROUTER)
+    target_include_directories(alljoyn PRIVATE
+        "${CMAKE_CURRENT_SOURCE_DIR}/src"
+        "${CMAKE_CURRENT_SOURCE_DIR}/router"
+        "${CMAKE_CURRENT_SOURCE_DIR}/router/posix"
+        )
+endif()
 

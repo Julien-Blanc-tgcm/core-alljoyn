@@ -51,13 +51,13 @@
 #include <alljoyn/BusObject.h>
 #include <alljoyn/Message.h>
 
+#include "../src/BusUtil.h"
+#include "../src/RemoteEndpoint.h"
+#include "../src/Transport.h"
 #include "Bus.h"
-#include "BusUtil.h"
 #include "NameTable.h"
-#include "RemoteEndpoint.h"
-#include "Transport.h"
-#include "VirtualEndpoint.h"
 #include "PermissionMgr.h"
+#include "VirtualEndpoint.h"
 #include "ns/IpNameService.h"
 
 namespace ajn {

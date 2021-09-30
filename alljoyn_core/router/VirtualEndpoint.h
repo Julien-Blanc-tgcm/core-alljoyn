@@ -39,8 +39,8 @@
 #include <qcc/ManagedObj.h>
 #include <qcc/String.h>
 
-#include "BusEndpoint.h"
-#include "RemoteEndpoint.h"
+#include "../src/BusEndpoint.h"
+#include "../src/RemoteEndpoint.h"
 
 #include <alljoyn/Message.h>
 

@@ -8,7 +8,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_custom_command(OUTPUT
     "${CMAKE_CURRENT_BINARY_DIR}/inc/alljoyn/Status.h"
     "${CMAKE_CURRENT_BINARY_DIR}/alljoyn_core/Status.cc"
-    COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/build_core/tools/bin/make_status.py --header
+    COMMAND
+        mkdir -p "${CMAKE_CURRENT_BINARY_DIR}/inc/alljoyn/" &&
+        mkdir -p "${CMAKE_CURRENT_SOURCE_DIR}/alljoyn_core/src/" &&
+        ${CMAKE_CURRENT_SOURCE_DIR}/build_core/tools/bin/make_status.py --header
         "${CMAKE_CURRENT_BINARY_DIR}/inc/alljoyn/Status.h" --code
         "${CMAKE_CURRENT_BINARY_DIR}/alljoyn_core/Status.cc" --base
         "${CMAKE_CURRENT_SOURCE_DIR}/alljoyn_core"
@@ -114,11 +117,11 @@ include_directories("common/inc"
     "${CMAKE_CURRENT_BINARY_DIR}/inc/alljoyn"
     )
 
-add_compile_definitions("QCC_OS_GROUP_POSIX" QCC_OS_LINUX QCC_LINUX_OPENSSL_GT_1_1_X)
+add_definitions("-DQCC_OS_GROUP_POSIX" -DQCC_OS_LINUX -DQCC_LINUX_OPENSSL_GT_1_1_X)
+#add_compile_definitions("QCC_OS_GROUP_POSIX" QCC_OS_LINUX QCC_LINUX_OPENSSL_GT_1_1_X)
 
-set(STATUS_FILE_SOURCE "${CMAKE_CURRENT_BINARY_DIR}/alljoyn_core/Status.cc")
-set_source_files_properties("${CMAKE_CURRENT_BINARY_DIR}/alljoyn_core/Status.cc" PROPERTIES GENERATED ON)
-message("${STATUS_FILE_SOURCE}")
+set_source_files_properties(${Status-cc-file} PROPERTIES GENERATED ON)
+message("Status file source is ${Status-cc-file}")
 
 add_subdirectory(alljoyn_c)
 add_subdirectory(alljoyn_core)

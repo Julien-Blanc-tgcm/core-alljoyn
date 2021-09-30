@@ -43,12 +43,12 @@
 
 #include <alljoyn/MsgArg.h>
 
+#include "../src/ProtectedAuthListener.h"
+#include "AllJoynDebugObj.h"
+#include "AllJoynObj.h"
 #include "Bus.h"
 #include "DBusObj.h"
-#include "AllJoynObj.h"
-#include "AllJoynDebugObj.h"
 #include "SessionlessObj.h"
-#include "ProtectedAuthListener.h"
 
 namespace ajn {
 

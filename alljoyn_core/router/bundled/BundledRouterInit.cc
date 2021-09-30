@@ -32,13 +32,13 @@
  *    PERFORMANCE OF THIS SOFTWARE.
  ******************************************************************************/
 
-#include <qcc/platform.h>
+#include "../RouterGlobals.h"
+#include "BundledRouter.h"
+#include <alljoyn/Init.h>
+#include <limits>
 #include <qcc/Mutex.h>
 #include <qcc/StaticGlobals.h>
-#include <alljoyn/Init.h>
-#include "BundledRouter.h"
-#include "RouterGlobals.h"
-#include <limits>
+#include <qcc/platform.h>
 
 static ajn::BundledRouter* bundledRouter = NULL;
 

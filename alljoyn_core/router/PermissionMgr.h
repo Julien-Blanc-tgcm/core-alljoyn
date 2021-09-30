@@ -34,8 +34,8 @@
 #ifndef _PERMISSION_MGR_H
 #define _PERMISSION_MGR_H
 
-#include "LocalTransport.h"
-#include "TransportList.h"
+#include "../src/LocalTransport.h"
+#include "../src/TransportList.h"
 #include <qcc/ThreadPool.h>
 
 namespace ajn {

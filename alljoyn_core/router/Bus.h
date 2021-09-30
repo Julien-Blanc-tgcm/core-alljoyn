@@ -51,9 +51,9 @@
 
 #include <alljoyn/Status.h>
 
-#include "TransportList.h"
+#include "../src/BusInternal.h"
+#include "../src/TransportList.h"
 #include "DaemonRouter.h"
-#include "BusInternal.h"
 
 namespace ajn {
 

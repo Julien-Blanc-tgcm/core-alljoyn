@@ -49,13 +49,13 @@
 
 #include <alljoyn/Status.h>
 
+#include "../Bus.h"
+#include "../BusController.h"
+#include "../ConfigDB.h"
+#include "../TCPTransport.h"
+#include "../UDPTransport.h"
+#include "../src/Transport.h"
 #include "BundledRouter.h"
-#include "Bus.h"
-#include "BusController.h"
-#include "ConfigDB.h"
-#include "Transport.h"
-#include "TCPTransport.h"
-#include "UDPTransport.h"
 
 #define QCC_MODULE "ALLJOYN_ROUTER"
 
