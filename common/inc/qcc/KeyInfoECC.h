@@ -137,7 +137,8 @@ class SigInfoECC : public SigInfo {
 
     virtual void Init() {
         SetAlgorithm(ALGORITHM_ECDSA_SHA_256);
-        memset(&sig, 0, sizeof(ECCSignature));
+		sig = {};
+        //memset(&sig, 0, sizeof(ECCSignature));
     }
 
     /**
