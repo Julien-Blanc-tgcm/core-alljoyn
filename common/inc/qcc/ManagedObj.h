@@ -93,7 +93,7 @@ class ManagedObj {
     typedef T ManagedType;
 
     /** Copy constructor */
-    ManagedObj<T>(const ManagedObj<T>&copyMe)
+    ManagedObj(const ManagedObj<T>&copyMe)
     {
         context = copyMe.context;
         object = copyMe.object;
@@ -101,7 +101,7 @@ class ManagedObj {
     }
 
     /** non-const Copy constructor needed to avoid ambiguity with ManagedObj<T>(A1& arg) constructor */
-    ManagedObj<T>(ManagedObj<T>&copyMe)
+    ManagedObj(ManagedObj<T>&copyMe)
     {
         context = copyMe.context;
         object = copyMe.object;
@@ -123,7 +123,7 @@ class ManagedObj {
      * @param other   ManagedObject to make a copy of.
      * @param isDeep  Specify if this is a deep (clone) copy or a normal copy
      */
-    ManagedObj<T>(const ManagedObj<T>&other, bool isDeep)
+    ManagedObj(const ManagedObj<T>&other, bool isDeep)
     {
         if (isDeep) {
             /* Deep copy */
@@ -143,7 +143,7 @@ class ManagedObj {
     }
 
     /** Allocate T() on the heap and set its reference count to 1. */
-    ManagedObj<T>()
+    ManagedObj()
     {
         const size_t offset = (sizeof(ManagedCtx) + 7) & ~0x07;
         context = reinterpret_cast<ManagedCtx*>(malloc(offset + sizeof(T)));
@@ -184,7 +184,7 @@ class ManagedObj {
      * Allocate T(arg1) on the heap and set its reference count to 1.
      * @param arg1   First arg to T constructor.
      */
-    template <typename A1> ManagedObj<T>(A1 & arg1)
+    template <typename A1> ManagedObj(A1 & arg1)
     {
         const size_t offset = (sizeof(ManagedCtx) + 7) & ~0x07;
         context = reinterpret_cast<ManagedCtx*>(malloc(offset + sizeof(T)));
@@ -200,7 +200,7 @@ class ManagedObj {
      * @param arg1   First arg to T constructor.
      * @param arg2   Second arg to T constructor.
      */
-    template <typename A1, typename A2> ManagedObj<T>(A1 & arg1, A2 & arg2)
+    template <typename A1, typename A2> ManagedObj(A1 & arg1, A2 & arg2)
     {
         const size_t offset = (sizeof(ManagedCtx) + 7) & ~0x07;
         context = reinterpret_cast<ManagedCtx*>(malloc(offset + sizeof(T)));
@@ -214,7 +214,7 @@ class ManagedObj {
      * @param arg2   Second arg to T constructor.
      * @param arg3   Third arg to T constructor.
      */
-    template <typename A1, typename A2, typename A3> ManagedObj<T>(A1 & arg1, A2 & arg2, A3 & arg3)
+    template <typename A1, typename A2, typename A3> ManagedObj(A1 & arg1, A2 & arg2, A3 & arg3)
     {
         const size_t offset = (sizeof(ManagedCtx) + 7) & ~0x07;
         context = reinterpret_cast<ManagedCtx*>(malloc(offset + sizeof(T)));
@@ -232,7 +232,7 @@ class ManagedObj {
      * @param arg3   Third arg to T constructor.
      * @param arg4   Fourth arg to T constructor.
      */
-    template <typename A1, typename A2, typename A3, typename A4> ManagedObj<T>(A1 & arg1, A2 & arg2, A3 & arg3, A4 & arg4)
+    template <typename A1, typename A2, typename A3, typename A4> ManagedObj(A1 & arg1, A2 & arg2, A3 & arg3, A4 & arg4)
     {
         const size_t offset = (sizeof(ManagedCtx) + 7) & ~0x07;
         context = reinterpret_cast<ManagedCtx*>(malloc(offset + sizeof(T)));
@@ -248,7 +248,7 @@ class ManagedObj {
      * @param arg4   Fourth arg to T constructor.
      * @param arg5   Fifth arg to T constructor.
      */
-    template <typename A1, typename A2, typename A3, typename A4, typename A5> ManagedObj<T>(A1 & arg1, A2 & arg2, A3 & arg3, A4 & arg4, A5 & arg5)
+    template <typename A1, typename A2, typename A3, typename A4, typename A5> ManagedObj(A1 & arg1, A2 & arg2, A3 & arg3, A4 & arg4, A5 & arg5)
     {
         const size_t offset = (sizeof(ManagedCtx) + 7) & ~0x07;
         context = reinterpret_cast<ManagedCtx*>(malloc(offset + sizeof(T)));
@@ -268,7 +268,7 @@ class ManagedObj {
      * @param arg5   Fifth arg to T constructor.
      * @param arg6   Sixth arg to T constructor.
      */
-    template <typename A1, typename A2, typename A3, typename A4, typename A5, typename A6> ManagedObj<T>(A1 & arg1, A2 & arg2, A3 & arg3, A4 & arg4, A5 & arg5, A6 & arg6)
+    template <typename A1, typename A2, typename A3, typename A4, typename A5, typename A6> ManagedObj(A1 & arg1, A2 & arg2, A3 & arg3, A4 & arg4, A5 & arg5, A6 & arg6)
     {
         const size_t offset = (sizeof(ManagedCtx) + 7) & ~0x07;
         context = reinterpret_cast<ManagedCtx*>(malloc(offset + sizeof(T)));
@@ -289,7 +289,7 @@ class ManagedObj {
      * @param arg6   Sixth arg to T constructor.
      * @param arg7   Seventh arg to T constructor.
      */
-    template <typename A1, typename A2, typename A3, typename A4, typename A5, typename A6, typename A7> ManagedObj<T>(A1 & arg1, A2 & arg2, A3 & arg3, A4 & arg4, A5 & arg5, A6 & arg6, A7 & arg7)
+    template <typename A1, typename A2, typename A3, typename A4, typename A5, typename A6, typename A7> ManagedObj(A1 & arg1, A2 & arg2, A3 & arg3, A4 & arg4, A5 & arg5, A6 & arg6, A7 & arg7)
     {
         const size_t offset = (sizeof(ManagedCtx) + 7) & ~0x07;
         context = reinterpret_cast<ManagedCtx*>(malloc(offset + sizeof(T)));
@@ -311,7 +311,7 @@ class ManagedObj {
      * @param arg7   Seventh arg to T constructor.
      * @param arg8   Eight arg to T constructor.
      */
-    template <typename A1, typename A2, typename A3, typename A4, typename A5, typename A6, typename A7, typename A8> ManagedObj<T>(A1 & arg1, A2 & arg2, A3 & arg3, A4 & arg4, A5 & arg5, A6 & arg6, A7 & arg7, A8 & arg8)
+    template <typename A1, typename A2, typename A3, typename A4, typename A5, typename A6, typename A7, typename A8> ManagedObj(A1 & arg1, A2 & arg2, A3 & arg3, A4 & arg4, A5 & arg5, A6 & arg6, A7 & arg7, A8 & arg8)
     {
         const size_t offset = (sizeof(ManagedCtx) + 7) & ~0x07;
         context = reinterpret_cast<ManagedCtx*>(malloc(offset + sizeof(T)));
@@ -334,7 +334,7 @@ class ManagedObj {
      * @param arg8   Eight arg to T constructor.
      * @param arg9   Ninth arg to T constructor.
      */
-    template <typename A1, typename A2, typename A3, typename A4, typename A5, typename A6, typename A7, typename A8, typename A9> ManagedObj<T>(A1 & arg1, A2 & arg2, A3 & arg3, A4 & arg4, A5 & arg5, A6 & arg6, A7 & arg7, A8 & arg8, A9 & arg9)
+    template <typename A1, typename A2, typename A3, typename A4, typename A5, typename A6, typename A7, typename A8, typename A9> ManagedObj(A1 & arg1, A2 & arg2, A3 & arg3, A4 & arg4, A5 & arg5, A6 & arg6, A7 & arg7, A8 & arg8, A9 & arg9)
     {
         const size_t offset = (sizeof(ManagedCtx) + 7) & ~0x07;
         context = reinterpret_cast<ManagedCtx*>(malloc(offset + sizeof(T)));
@@ -358,7 +358,7 @@ class ManagedObj {
      * @param arg9   Ninth arg to T constructor.
      * @param arg10  Tenth arg to T constructor.
      */
-    template <typename A1, typename A2, typename A3, typename A4, typename A5, typename A6, typename A7, typename A8, typename A9, typename A10> ManagedObj<T>(A1 & arg1, A2 & arg2, A3 & arg3, A4 & arg4, A5 & arg5, A6 & arg6, A7 & arg7, A8 & arg8, A9 & arg9, A10 & arg10)
+    template <typename A1, typename A2, typename A3, typename A4, typename A5, typename A6, typename A7, typename A8, typename A9, typename A10> ManagedObj(A1 & arg1, A2 & arg2, A3 & arg3, A4 & arg4, A5 & arg5, A6 & arg6, A7 & arg7, A8 & arg8, A9 & arg9, A10 & arg10)
     {
         const size_t offset = (sizeof(ManagedCtx) + 7) & ~0x07;
         context = reinterpret_cast<ManagedCtx*>(malloc(offset + sizeof(T)));
@@ -373,7 +373,7 @@ class ManagedObj {
      * ManagedObj destructor.
      * Decrement T's reference count and deallocate if zero.
      */
-    ~ManagedObj<T>()
+    ~ManagedObj()
     {
         DecRef();
     }
@@ -383,7 +383,7 @@ class ManagedObj {
      * @param assignFromMe   ManagedObj<T> to copy from.
      * @return reference to this MangedObj<T>.
      */
-    ManagedObj<T>& operator=(const ManagedObj<T>& assignFromMe)
+    ManagedObj& operator=(const ManagedObj<T>& assignFromMe)
     {
         if (object != assignFromMe.object) {
             /* Decrement ref of current context */
@@ -498,7 +498,7 @@ class ManagedObj {
 
   private:
 
-    ManagedObj<T>(ManagedCtx* context, T* object) : context(context), object(object)
+    ManagedObj(ManagedCtx* context, T* object) : context(context), object(object)
     {
         QCC_ASSERT(context->magic == ManagedCtxMagic);
         IncRef();
