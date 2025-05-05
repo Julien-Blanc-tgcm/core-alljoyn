@@ -323,6 +323,7 @@ static uint32_t NetlinkRecv(int sockFd, char* buffer, int buflen)
 
     while (1) {
         int tmp = recv(sockFd, &buffer[nBytes], buflen - nBytes, 0);
+		int total = tmp;
 
         if (tmp < 0) {
             return nBytes;
@@ -334,12 +335,17 @@ static uint32_t NetlinkRecv(int sockFd, char* buffer, int buflen)
 
         struct nlmsghdr* p = (struct nlmsghdr*)&buffer[nBytes];
 
-        if (p->nlmsg_type == NLMSG_DONE) {
-            break;
-        }
-
-        nBytes += tmp;
-    }
+		while (NLMSG_OK(p, tmp))
+		{
+			if (p->nlmsg_type == NLMSG_DONE)
+			{
+				nBytes += total;
+				return nBytes;
+			}
+			p = NLMSG_NEXT(p, tmp);
+		}
+		nBytes += total;
+	}
 
     return nBytes;
 }
