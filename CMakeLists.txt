@@ -29,7 +29,7 @@ add_custom_command(OUTPUT
 
 install(FILES
     "${CMAKE_CURRENT_BINARY_DIR}/inc/alljoyn/Status.h"
-    DESTINATION dist/c/inc/alljoyn_c/Status.h
+    DESTINATION include/alljoyn
     )
 
 add_custom_target(status_header_cpp DEPENDS

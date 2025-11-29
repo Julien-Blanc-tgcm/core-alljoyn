@@ -63,3 +63,4 @@ target_include_directories(alljoyn_c PRIVATE
     "${CMAKE_CURRENT_SOURCE_DIR}/../alljoyn_core/src"
     )
 
+install(TARGETS alljoyn_c)

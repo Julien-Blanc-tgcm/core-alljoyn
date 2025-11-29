@@ -128,18 +128,18 @@ if(${EMBED_ALLJOYN_ROUTER})
         )
 endif()
 
-include_directories("${CMAKE_CURRENT_SOURCE_DIR}/inc"
-    "${CMAKE_CURRENT_SOURCE_DIR}/../common/crypto"
-    "${CMAKE_CURRENT_BINARY_DIR}/inc"
-    "${CMAKE_CURRENT_BINARY_DIR}/inc/alljoyn"
-    )
-
 # also adds generated files to sources
 add_library(alljoyn
     ${alljoyn-core-sources}
     ${alljoyn-common-sources}
     ${alljoyn-router-sources}
 )
+
+target_include_directories(alljoyn PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/inc"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../common/crypto"
+    "${CMAKE_CURRENT_BINARY_DIR}/inc"
+    "${CMAKE_CURRENT_BINARY_DIR}/inc/alljoyn"
+    )
 
 add_dependencies(alljoyn status_header_cpp)
 
@@ -152,3 +152,4 @@ if(${EMBED_ALLJOYN_ROUTER})
         )
 endif()
 
+install(TARGETS alljoyn)
